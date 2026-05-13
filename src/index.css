@@ -1,0 +1,54 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,600&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+
+  --color-ink: #09090c;
+  --color-ink-2: #0e0e12;
+  --color-ink-3: #141418;
+  --color-surface: #1a1a20;
+  --color-rim: #252530;
+  --color-rim-2: #32323f;
+  --color-gold: #f2c041;
+  --color-gold-2: #e8a800;
+  --color-azure: #4a8fff;
+  --color-azure-2: #2563eb;
+  --color-snow: #f2f0f8;
+  --color-ash: #8b899e;
+  --color-dim: #4a4858;
+
+  --radius-xl: 18px;
+  --radius-sm: 10px;
+}
+
+@layer base {
+  body {
+    @apply bg-ink text-snow font-sans overflow-x-hidden;
+    cursor: none;
+  }
+}
+
+/* Custom Cursor Styles */
+.custom-cursor {
+  @apply fixed w-2.5 h-2.5 bg-gold rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 mix-blend-difference transition-[background] duration-200;
+}
+
+.custom-cursor-ring {
+  @apply fixed w-9 h-9 border-[1.5px] border-[rgba(242,192,65,0.45)] rounded-full pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 transition-[width,height] duration-250;
+}
+
+.custom-cursor-ring.expanded {
+  @apply w-14 h-14 opacity-40;
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
